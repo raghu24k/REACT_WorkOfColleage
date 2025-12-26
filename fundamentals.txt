@@ -1,0 +1,12 @@
+installation of react and project making setup:
+1.download node.js of latest version (nodejs.org)
+2.to check its installed or not go to cmd or commond it --> node -version, npm -version
+
+to create project in vs code  
+1. first create a folder what ever of name for your project
+2. now open folder in vscode and in terminal type -- npm create vite@latest
+	choose react and javascript
+3. now open folder in file and from it open cmd and run -- cd (your project name)
+4. now type npm install
+5. to run your project type npm run dev
+
