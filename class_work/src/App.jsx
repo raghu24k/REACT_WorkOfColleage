@@ -1,6 +1,6 @@
-import PropsExample from "./12-26-25/props_example";
+import PropsExample from "./working on/props_example";
 import React from "react";
-import DefaultProps from "./12-26-25/defaultprops";
+import DefaultProps from "./working on/defaultprops";
 function App() {
     return (
         <>
