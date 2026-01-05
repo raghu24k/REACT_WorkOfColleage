@@ -16,3 +16,5 @@ function ArthimeticOperation(a, b){
     console.log(`the division of ${a} and ${b} is ${a / b}`);
 }
 ArthimeticOperation(11,22);
+
+// create a functionn whcih  will return *3 if odd else *2 if num is even
