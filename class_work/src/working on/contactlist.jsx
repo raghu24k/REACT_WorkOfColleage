@@ -1,68 +1,152 @@
-import React, {Component} from "react";
-
-class Contactlist extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            contacts: [],
-            showContacts: false
-        };
+import React, { Component } from "react";
+class ContactList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { contacts: [], firstname: "", lastname: "", contactno: "", editingId: null };
+  }
+  addtocontact = () => {
+    if (
+      this.state.firstname.trim() == "" ||
+      this.state.lastname.trim() == "" ||
+      this.state.contactno.trim() == ""
+    )
+      return;
+    if (this.state.editingId) {
+      // Update existing contact
+      this.setState((prevState) => ({
+        contacts: prevState.contacts.map((contact) =>
+          contact.id === prevState.editingId
+            ? {
+                ...contact,
+                fname: prevState.firstname,
+                lname: prevState.lastname,
+                contact: prevState.contactno,
+              }
+            : contact
+        ),
+        firstname: "",
+        lastname: "",
+        contactno: "",
+        editingId: null,
+      }));
+    } else {
+      // Add new contact
+      const newentry = {
+        id: Date.now(),
+        fname: this.state.firstname,
+        lname: this.state.lastname,
+        contact: this.state.contactno,
+        visible: false,
+      };
+      this.setState((prevState) => ({
+        contacts: [newentry, ...prevState.contacts],
+        firstname: "",
+        lastname: "",
+        contactno: "",
+      }));
     }
+  };
+  onfirstnamechange = (e) => {
+    this.setState({ firstname: e.target.value });
+  };
+  onlastnamechange = (e) => {
+    this.setState({ lastname: e.target.value });
+  };
+  oncontactnochange = (e) => {
+    this.setState({ contactno: e.target.value });
+  };
 
-    addContact = () => {
-        const name = document.getElementById("AddCon").value.trim();
-        const phone = document.getElementById("AddPhone").value.trim();
-        if (name && phone) {
-            this.setState({
-                contacts: [...this.state.contacts, { name, phone }],
-                showContacts: true
-            });
-            document.getElementById("AddCon").value = "";
-            document.getElementById("AddPhone").value = "";
-        }
+  deletecontact = (id) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((y) => y.id !== id),
+    }));
+  };
+  updatecontact = (id) => {
+    const contact = this.state.contacts.find((c) => c.id === id);
+    if (contact) {
+      this.setState({
+        editingId: id,
+        firstname: contact.fname,
+        lastname: contact.lname,
+        contactno: contact.contact,
+      });
     }
-
-    toggleShowContacts = () => {
-        this.setState({ showContacts: !this.state.showContacts });
-    }
-
-    render() {
-        return (
-             <>
-            <h1 align="center">Contact List Book</h1>
-            {this.state.showContacts && (
-            <table border="2" width="50%" align="center">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Phone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.contacts.map((contact, index) => (
-                            <tr key={index}>
-                                <td>{contact.name}</td>
-                                <td>{contact.phone}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            )}
-            <div align="center">
-                <br />
-                <input id="AddCon" type="text" placeholder="Enter Name"/>
-                <input id="AddPhone" type="number" placeholder="Enter Phone Number"/>
-                <button id="btnadd" onClick={this.addContact}>Add Contact</button><br/><br/>
-                <button onClick={this.toggleShowContacts}>
-                    {this.state.showContacts ? 'Hide Contacts' : 'Show Contacts'}
-                </button>
-            </div>
-             </>
-        );
-    }
+  };
+  viewcontact = (id) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.map((x) =>
+        x.id === id ? { ...x, visible: !x.visible } : x
+      ),
+    }));
+  };
+  render() {
+    const { contacts, firstname, lastname, contactno } = this.state;
+    return (
+      <>
+        <input
+          type="text"
+        //   text="First Name"
+          value={firstname}
+          onChange={this.onfirstnamechange}
+        />
+        <input type="text" value={lastname} onChange={this.onlastnamechange} />
+        <input
+          type="text"
+          value={contactno}
+          onChange={this.oncontactnochange}
+        />
+        <br />
+        <button onClick={this.addtocontact}>
+          {this.state.editingId ? "Update" : "Add"}
+        </button>
+        {this.state.editingId && (
+          <button
+            onClick={() =>
+              this.setState({
+                editingId: null,
+                firstname: "",
+                lastname: "",
+                contactno: "",
+              })
+            }
+          >
+            Cancel
+          </button>
+        )}
+        <br />
+        <ul>
+          {contacts.map((x) => (
+            <li key={x.id}>
+              {x.fname}{" "}
+              <button
+                onClick={() => {
+                  this.viewcontact(x.id);
+                }}
+              >
+                View
+              </button>{" "}
+              <button
+                onClick={() => {
+                  this.updatecontact(x.id);
+                }}
+              >
+                Update
+              </button>{" "}
+              <button onClick={() => this.deletecontact(x.id)}>Delete</button>
+              {/* <button onClick={() => this.onfirstnamechange(x.id)}></button> */}
+              <div style={{ display: x.visible ? "" : "none" }}>
+                {x.lname} - {x.contact}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </>
+    );
+  }
 }
-export default Contactlist;
+export default ContactList;
 
-//add  contacts,edit conatacts details,delete contacts
-// observer array state mangement with object
-
+// 1. Create `src/ContactList.js`
+// 2. Import and use in `App.js`
+// 3. Add contacts, edit contact details, delete contacts
+// 4. Observe array state management with object updates
