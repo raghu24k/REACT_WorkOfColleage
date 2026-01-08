@@ -1,0 +1,14 @@
+commonds -- cmd
+What does the `npm init` command do?
+It installs all dependencies of a Node. js project.
+It initializes a new Node. js project.
+It updates all dependencies of a Node. js project.
+It tests all functions of a Node. js project.
+
+
+1.npm init -y
+2.npm i express // to install express 
+
+
+npm i // for install all the packages of file ex: if you take someone project and to run in at your
+you can do this to run this
