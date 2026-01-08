@@ -5,6 +5,7 @@ const port = 3000
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/uni',(req,res)=>res.send('Welcome to RKU!!'))
+app.post('/',(req,res)=> res.send('from post:'))
 app.get('/student',(req,res)=>res.json({
     name: "Raghu",
     city: "rajkot",
