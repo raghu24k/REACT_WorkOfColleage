@@ -23,3 +23,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 // 1.student details
 // 2.create n points uniqe which will print WELCOME TO RKU
 // 3.to get user input a,b and then print it simply
+
+//4.create end point for students or students(?) 
+//5.create end point which will have starting and ending f and d in between one or more all's are allowed
+//
