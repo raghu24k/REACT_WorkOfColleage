@@ -24,6 +24,14 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 // 2.create n points uniqe which will print WELCOME TO RKU
 // 3.to get user input a,b and then print it simply
 
-//4.create end point for students or students(?) 
-//5.create end point which will have starting and ending f and d in between one or more all's are allowed
-//
+// 4.create end point for students or students(?) 
+// 5.create end point which will have starting and ending f and d in between one or more all's are allowed
+// 6.create end point which will start with s and ends with d
+// 
+// middlewar: middleware is 
+app.get('/example/b', (req, res, next) => {
+  console.log('the response will be sent by the next function ...')
+  next()
+}, (req, res) => {
+  res.send('Hello from B!')
+})
