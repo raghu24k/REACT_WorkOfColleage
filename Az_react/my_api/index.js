@@ -20,6 +20,8 @@ app.get('/student',(req,res)=>res.json({
 app.get('/myname/:fname/:lname',(req,res)=>res.send(`Welcome ${req.params.fname} ${req.params.lname}`))
 const studentsRouter = require('./students')
 app.use('/students', studentsRouter)
+const birdsRouter = require('./birds')
+app.use('/birds', birdsRouter)
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 // 1.student details
