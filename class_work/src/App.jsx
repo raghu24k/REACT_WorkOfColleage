@@ -2,8 +2,12 @@
 import React from "react";
 // import DefaultProps from "./working on/defaultprops";
 // import Form_Exercise from "./working on/form_exercise";
-import Todolist from "./working on/todolist";
-import Contactlist from "./working on/contactlist";
+// import Todolist from "./working on/todolist";
+// import { Pagination } from "@mui/material";
+// import Pagination from "./working on/pagging";
+import Pagging from "./working on/pagging";
+import Paggingtwo from "./working on/paggingtwo";
+// import Contactlist from "./working on/contactlist";
 // import Contactlist form "./working on/byrSir"
 
 
@@ -18,7 +22,11 @@ function App() {
             {/* <DefaultProps /> */}
             {/* <Form_Exercise /> */}
             {/* <Todolist/> */}
-            <Contactlist/>
+            {/* <Contactlist/> */}
+                <div>
+                    {/* <Pagging /> */}
+                    <Paggingtwo/>
+                </div>
 
             
         </>
