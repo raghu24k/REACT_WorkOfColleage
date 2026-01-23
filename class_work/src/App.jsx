@@ -5,8 +5,9 @@ import React from "react";
 // import Todolist from "./working on/todolist";
 // import { Pagination } from "@mui/material";
 // import Pagination from "./working on/pagging";
-import Pagging from "./working on/pagging";
-import Paggingtwo from "./working on/paggingtwo";
+// import Pagging from "./working on/pagging";
+// import Paggingtwo from "./working on/paggingtwo";
+import Hookexample from "./working on/hook";
 // import Contactlist from "./working on/contactlist";
 // import Contactlist form "./working on/byrSir"
 
@@ -23,11 +24,11 @@ function App() {
             {/* <Form_Exercise /> */}
             {/* <Todolist/> */}
             {/* <Contactlist/> */}
-                <div>
+            
                     {/* <Pagging /> */}
-                    <Paggingtwo/>
-                </div>
 
+                
+                <Hookexample/>
             
         </>
     )
