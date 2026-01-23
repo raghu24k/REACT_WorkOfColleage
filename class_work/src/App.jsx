@@ -8,6 +8,7 @@ import React from "react";
 // import Pagging from "./working on/pagging";
 // import Paggingtwo from "./working on/paggingtwo";
 import Hookexample from "./working on/hook";
+import Hookexample1 from "./working on/hook1";
 // import Contactlist from "./working on/contactlist";
 // import Contactlist form "./working on/byrSir"
 
@@ -28,7 +29,8 @@ function App() {
                     {/* <Pagging /> */}
 
                 
-                <Hookexample/>
+                {/* <Hookexample/> */}
+                <Hookexample1/>
             
         </>
     )
