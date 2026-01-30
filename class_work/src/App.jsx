@@ -8,7 +8,8 @@ import React from "react";
 // import Pagging from "./working on/pagging";
 // import Paggingtwo from "./working on/paggingtwo";
 // import Hookexample from "./working on/hook";
-import Hookexample2 from "./working on/hook2";
+// import Hookexample2 from "./working on/hook2";
+import Hookexample3 from "./working on/hook3";
 // import Hookexample1 from "./working on/hook1";
 // import Contactlist from "./working on/contactlist";
 // import Contactlist form "./working on/byrSir"
@@ -32,7 +33,7 @@ function App() {
                 
                 {/* <Hookexample/> */}
                 {/* <Hookexample1/> */}
-                <Hookexample2/>
+                <Hookexample3/>
             
         </>
     )
