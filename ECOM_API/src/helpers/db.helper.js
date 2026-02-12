@@ -34,3 +34,4 @@ async function initialize() {
 
     await sequelize.sync({ alter: true });
 }
+// dont use alter true   
