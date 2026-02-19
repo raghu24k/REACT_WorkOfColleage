@@ -31,7 +31,7 @@ async function initialize() {
         dialect: "mysql",  // this is the handler for the which database is being used in the site
         host: HOST,
     });
-
+    db.category = require('../models/category.model')(sequelize)
     await sequelize.sync({ alter: true });
 }
 // dont use alter true   
