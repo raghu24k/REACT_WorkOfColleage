@@ -1,3 +1,4 @@
+const { Description } = require("@mui/icons-material");
 const db = require("../helpers/db.helper");
 const { Op } = require("sequelize");
 
@@ -65,3 +66,8 @@ async function getCategory(id) {
     if (!category) return "Category not found";
     return category;
 }
+
+
+// perfrom crud op prouduct and shop with attribute
+// product name: Description,price,status
+// name,address,gst no,contact no,

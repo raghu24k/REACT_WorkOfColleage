@@ -1,6 +1,6 @@
 const express = require('express')
-const category = require("./src/routes/category.route");
-const errors = require("./src/utils/errors");
+const category = require("./routes/category.route");
+const errors = require("./utils/error");
 const app = express()
 const port = 3000
 app.use(express.json());
